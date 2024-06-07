@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
-import { catchAsync, pick } from '../utils';
-import * as productService from './products.service';
 import httpStatus from 'http-status';
+import { catchAsync } from '../utils';
+import * as productService from './products.service';
 
-export const getProducts = catchAsync(async (req: Request, res: Response) => {
+export const getProducts = catchAsync(async (res: Response) => {
   const result = await productService.getProducts();
   res.send(result);
 });

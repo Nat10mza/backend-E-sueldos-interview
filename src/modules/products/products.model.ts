@@ -20,10 +20,15 @@ const productSchema = new mongoose.Schema<IProduct>(
       trim: true,
     },
     user: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
+      type: String,
+      // ref: 'User',
       required: true,
     },
+    // user: {
+    //   type: mongoose.Schema.Types.ObjectId,
+    //   ref: 'User',
+    //   required: true,
+    // },
     price: {
       type: Number,
       required: true,
