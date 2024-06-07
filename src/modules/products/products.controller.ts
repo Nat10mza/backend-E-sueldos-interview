@@ -8,9 +8,9 @@ import * as productService from './products.service';
 //   res.status(400);
 // });
 
-export const getProducts = catchAsync(async (res: Response) => {
-  const results = await productService.getProducts();
-  res.status(httpStatus.CREATED).send(results);
+export const getProducts = catchAsync(async (_req: Request, res: Response) => {
+  const product = await productService.getProducts();
+  res.json(product);
 });
 
 export const createProduct = catchAsync(async (req: Request, res: Response) => {
