@@ -9,8 +9,13 @@ import * as productService from './products.service';
 // });
 
 export const getProducts = catchAsync(async (_req: Request, res: Response) => {
-  const product = await productService.getProducts();
-  res.json(product);
+  const products = await productService.getProducts();
+  res.json(products);
+});
+
+export const getIdAndNames = catchAsync(async (_req: Request, res: Response) => {
+  const products = await productService.getIdAndNames();
+  res.json(products);
 });
 
 export const createProduct = catchAsync(async (req: Request, res: Response) => {
