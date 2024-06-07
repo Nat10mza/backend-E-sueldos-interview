@@ -3,9 +3,14 @@ import httpStatus from 'http-status';
 import { catchAsync } from '../utils';
 import * as productService from './products.service';
 
+// export const getProducts = catchAsync(async (res: Response) => {
+//   // const result = await productService.getProducts();
+//   res.status(400);
+// });
+
 export const getProducts = catchAsync(async (res: Response) => {
-  const result = await productService.getProducts();
-  res.send(result);
+  const results = await productService.getProducts();
+  res.status(httpStatus.CREATED).send(results);
 });
 
 export const createProduct = catchAsync(async (req: Request, res: Response) => {

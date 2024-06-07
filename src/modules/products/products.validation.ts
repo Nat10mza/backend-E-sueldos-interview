@@ -3,10 +3,10 @@ import Joi from 'joi';
 import { objectId } from '../validate';
 
 const createProductBody = {
+  user: Joi.string().required().custom(objectId),
   name: Joi.string().required(),
   description: Joi.string().required(),
   image: Joi.string().required(),
-  user: Joi.string().required(),
   price: Joi.number().required().min(0),
 };
 

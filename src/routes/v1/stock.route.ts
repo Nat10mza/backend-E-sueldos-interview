@@ -1,11 +1,11 @@
 import express, { Router } from 'express';
 // import { auth } from '@/modules/auth';
-import { productsController } from '../../modules/products';
+import { stockController } from '../../modules/stock';
 // import { validate } from '@/modules/validate';
 
 const router: Router = express.Router();
 
 // eslint-disable-next-line prettier/prettier
-router.route('/').post(productsController.createProduct).get(productsController.getProducts);
+router.route('/').post(stockController.createStock).get(stockController.getStock);
 
 export default router;

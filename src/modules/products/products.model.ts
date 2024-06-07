@@ -20,8 +20,8 @@ const productSchema = new mongoose.Schema<IProduct>(
       trim: true,
     },
     user: {
-      type: String,
-      // ref: 'User',
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
       required: true,
     },
     // user: {

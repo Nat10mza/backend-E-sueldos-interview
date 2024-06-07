@@ -3,6 +3,7 @@ import authRoute from './auth.route';
 import docsRoute from './swagger.route';
 import userRoute from './user.route';
 import productsRoute from './products.route';
+import stockRoute from './stock.route';
 
 import config from '../../config/config';
 
@@ -25,6 +26,10 @@ const defaultIRoute: IRoute[] = [
   {
     path: '/products',
     route: productsRoute,
+  },
+  {
+    path: '/stock',
+    route: stockRoute,
   },
 ];
 
