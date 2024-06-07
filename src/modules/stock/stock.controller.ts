@@ -8,7 +8,7 @@ import * as stockService from './stock.service';
 //   res.status(400);
 // });
 
-export const getStock = catchAsync(async (res: Response) => {
+export const getStock = catchAsync(async (_req: Request, res: Response) => {
   const results = await stockService.getStock();
   res.status(httpStatus.CREATED).send(results);
 });
