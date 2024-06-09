@@ -6,6 +6,8 @@ import { stockController } from '../../modules/stock';
 const router: Router = express.Router();
 
 // eslint-disable-next-line prettier/prettier
-router.route('/').post(stockController.createStock).get(stockController.getStocks);
+router.route('/').post(stockController.createStock).get(stockController.getStocks).patch();
+
+router.route('/:stockId').get(stockController.getStock).patch(stockController.updateStock);
 
 export default router;

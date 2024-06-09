@@ -5,3 +5,5 @@ export interface IStock {
   product: mongoose.Types.ObjectId;
   quantity: number;
 }
+
+export type UpdateStockBody = Partial<IStock>;
