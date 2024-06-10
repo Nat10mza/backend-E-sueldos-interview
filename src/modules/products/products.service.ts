@@ -1,3 +1,4 @@
+import mongoose from 'mongoose';
 import Product from './products.model';
 
 export const getProducts = async (): Promise<any> => {
@@ -5,10 +6,7 @@ export const getProducts = async (): Promise<any> => {
   return products;
 };
 
-export const getIdAndNames = async (): Promise<any> => {
-  const products = await Product.find({}, 'name _id').exec();
-  return products;
-};
+export const getProductById = async (id: mongoose.Types.ObjectId): Promise<any> => Product.findById(id);
 
 export const createProduct = async (productBody: any): Promise<any> => {
   return Product.create(productBody);
