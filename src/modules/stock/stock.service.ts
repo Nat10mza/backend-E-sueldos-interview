@@ -42,10 +42,18 @@ export const createStock = async (stockBody: any): Promise<any> => {
 };
 
 export const updateStockById = async (productId: mongoose.Types.ObjectId, updateBody: UpdateStockBody): Promise<any> => {
+  const existingProduct = await Product.findById(updateBody.product);
   const stock = await getStockById(productId);
+
+  if (!existingProduct) {
+    throw new ApiError(httpStatus.NOT_FOUND, 'Product not found');
+    return;
+  }
+
   if (!stock) {
     throw new ApiError(httpStatus.NOT_FOUND, 'Stock not found');
   }
+
   Object.assign(stock, updateBody);
   await stock.save();
   return stock;
