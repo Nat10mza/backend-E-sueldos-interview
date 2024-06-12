@@ -29,3 +29,17 @@ export const createProduct = catchAsync(async (req: Request, res: Response) => {
   const product = await productService.createProduct(req.body);
   res.status(httpStatus.CREATED).send(product);
 });
+
+export const updateProduct = catchAsync(async (req: Request, res: Response) => {
+  if (typeof req.params['productId'] === 'string') {
+    const product = await productService.updateProductById(new mongoose.Types.ObjectId(req.params['productId']), req.body);
+    res.send(product);
+  }
+});
+
+export const deleteProduct = catchAsync(async (req: Request, res: Response) => {
+  if (typeof req.params['productId'] === 'string') {
+    await productService.deleteProductById(new mongoose.Types.ObjectId(req.params['productId']));
+    res.status(httpStatus.NO_CONTENT).send();
+  }
+});

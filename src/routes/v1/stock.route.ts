@@ -5,6 +5,9 @@ import { stockController } from '../../modules/stock';
 
 const router: Router = express.Router();
 
+// user: ['getUsers', 'getStocks', 'getProducts'],
+// admin: ['getUsers', 'getStocks', 'getProducts', 'manageUsers', 'manageStocks', 'manageProducts'],
+
 // eslint-disable-next-line prettier/prettier
 router.route('/').post(stockController.createStock).get(stockController.getStocks).patch();
 
