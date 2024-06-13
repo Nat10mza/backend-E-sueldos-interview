@@ -4,6 +4,7 @@ import docsRoute from './swagger.route';
 import userRoute from './user.route';
 import productsRoute from './products.route';
 import stockRoute from './stock.route';
+import filesRoute from './files.route';
 
 import config from '../../config/config';
 
@@ -30,6 +31,10 @@ const defaultIRoute: IRoute[] = [
   {
     path: '/stock',
     route: stockRoute,
+  },
+  {
+    path: '/files',
+    route: filesRoute,
   },
 ];
 
